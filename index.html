@@ -13,7 +13,11 @@
         <form id="templateForm">
             <!-- Header Section -->
             <div class="form-section">
-                <h2>Header</h2>
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeHeader" checked> Include Header
+                    </label>
+                </h2>
                 <label for="headerImage">Header Background Image URL:</label>
                 <input type="url" id="headerImage" placeholder="https://example.com/image.jpg">
                 
@@ -23,7 +27,11 @@
 
             <!-- Personal Greeting -->
             <div class="form-section">
-                <h2>Personal Greeting</h2>
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeGreeting" checked> Include Personal Greeting
+                    </label>
+                </h2>
                 <label for="firstName">First Name Placeholder:</label>
                 <input type="text" id="firstName" value="{{FirstName}}">
                 
@@ -33,7 +41,11 @@
 
             <!-- Main Event Section -->
             <div class="form-section">
-                <h2>Main Event</h2>
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeMainEvent" checked> Include Main Event
+                    </label>
+                </h2>
                 <label for="eventTitle">Event Title:</label>
                 <input type="text" id="eventTitle" value="Join Us for the Harvest Festival!">
                 
@@ -72,99 +84,109 @@
                     <label for="activity4">Activity 4:</label>
                     <input type="text" id="activity4" value="🎪 Live entertainment and music">
                 </div>
-
             </div>
 
-<!-- Additional Event 1 -->
-<div class="form-section">
-    <h2>Additional Event 1</h2>
-    <label for="event1Title">Event Title:</label>
-    <input type="text" id="event1Title" value="Discover Our Weekend Program">
-    
-    <label for="event1Date">Event Date:</label>
-    <input type="text" id="event1Date" value="Every Saturday & Sunday">
-    
-    <label for="event1Time">Event Time:</label>
-    <input type="text" id="event1Time" value="9:00 AM - 3:00 PM">
-    
-    <label for="event1Location">Event Location:</label>
-    <input type="text" id="event1Location" value="Various Campus Locations">
-    
-    <label for="event1Description">Event Description:</label>
-    <textarea id="event1Description">In addition to our exciting Harvest Festival, we want to remind you about our fantastic Weekend Program that runs every Saturday and Sunday throughout the fall season.</textarea>
-    
-    <label for="event1Image">Event Image URL:</label>
-    <input type="url" id="event1Image" placeholder="https://example.com/event1-image.jpg">
-    
-    <h3>Activities for Event 1:</h3>
-    <div class="activity-item">
-        <label for="event1Activity1">Activity 1:</label>
-        <input type="text" id="event1Activity1" value="🎨 Arts and crafts workshops">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event1Activity2">Activity 2:</label>
-        <input type="text" id="event1Activity2" value="⚽ Outdoor sports and games">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event1Activity3">Activity 3:</label>
-        <input type="text" id="event1Activity3" value="📚 Educational nature walks">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event1Activity4">Activity 4:</label>
-        <input type="text" id="event1Activity4" value="🍕 Community lunch gatherings">
-    </div>
-</div>
+            <!-- Additional Event 1 -->
+            <div class="form-section">
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeEvent1" checked> Include Additional Event 1
+                    </label>
+                </h2>
+                <label for="event1Title">Event Title:</label>
+                <input type="text" id="event1Title" value="Discover Our Weekend Program">
+                
+                <label for="event1Date">Event Date:</label>
+                <input type="text" id="event1Date" value="Every Saturday & Sunday">
+                
+                <label for="event1Time">Event Time:</label>
+                <input type="text" id="event1Time" value="9:00 AM - 3:00 PM">
+                
+                <label for="event1Location">Event Location:</label>
+                <input type="text" id="event1Location" value="Various Campus Locations">
+                
+                <label for="event1Description">Event Description:</label>
+                <textarea id="event1Description">In addition to our exciting Harvest Festival, we want to remind you about our fantastic Weekend Program that runs every Saturday and Sunday throughout the fall season.</textarea>
+                
+                <label for="event1Image">Event Image URL:</label>
+                <input type="url" id="event1Image" placeholder="https://example.com/event1-image.jpg">
+                
+                <h3>Activities for Event 1:</h3>
+                <div class="activity-item">
+                    <label for="event1Activity1">Activity 1:</label>
+                    <input type="text" id="event1Activity1" value="🎨 Arts and crafts workshops">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event1Activity2">Activity 2:</label>
+                    <input type="text" id="event1Activity2" value="⚽ Outdoor sports and games">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event1Activity3">Activity 3:</label>
+                    <input type="text" id="event1Activity3" value="📚 Educational nature walks">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event1Activity4">Activity 4:</label>
+                    <input type="text" id="event1Activity4" value="🍕 Community lunch gatherings">
+                </div>
+            </div>
 
-<!-- Additional Event 2 -->
-<div class="form-section">
-    <h2>Additional Event 2</h2>
-    <label for="event2Title">Event Title:</label>
-    <input type="text" id="event2Title" value="Holiday Celebration">
-    
-    <label for="event2Date">Event Date:</label>
-    <input type="text" id="event2Date" value="December 15th, 2023">
-    
-    <label for="event2Time">Event Time:</label>
-    <input type="text" id="event2Time" value="6:00 PM - 9:00 PM">
-    
-    <label for="event2Location">Event Location:</label>
-    <input type="text" id="event2Location" value="Community Center">
-    
-    <label for="event2Description">Event Description:</label>
-    <textarea id="event2Description">Join us for a magical evening celebrating the holiday season with our community. This special event brings together families and friends for an unforgettable celebration.</textarea>
-    
-    <label for="event2Image">Event Image URL:</label>
-    <input type="url" id="event2Image" placeholder="https://example.com/event2-image.jpg">
-    
-    <h3>Activities for Event 2:</h3>
-    <div class="activity-item">
-        <label for="event2Activity1">Activity 1:</label>
-        <input type="text" id="event2Activity1" value="🎄 Holiday decoration making">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event2Activity2">Activity 2:</label>
-        <input type="text" id="event2Activity2" value="🎵 Caroling and live performances">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event2Activity3">Activity 3:</label>
-        <input type="text" id="event2Activity3" value="🍪 Cookie decorating station">
-    </div>
-    
-    <div class="activity-item">
-        <label for="event2Activity4">Activity 4:</label>
-        <input type="text" id="event2Activity4" value="🎁 Gift exchange and community sharing">
-    </div>
-</div>
-
+            <!-- Additional Event 2 -->
+            <div class="form-section">
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeEvent2" checked> Include Additional Event 2
+                    </label>
+                </h2>
+                <label for="event2Title">Event Title:</label>
+                <input type="text" id="event2Title" value="Holiday Celebration">
+                
+                <label for="event2Date">Event Date:</label>
+                <input type="text" id="event2Date" value="December 15th, 2023">
+                
+                <label for="event2Time">Event Time:</label>
+                <input type="text" id="event2Time" value="6:00 PM - 9:00 PM">
+                
+                <label for="event2Location">Event Location:</label>
+                <input type="text" id="event2Location" value="Community Center">
+                
+                <label for="event2Description">Event Description:</label>
+                <textarea id="event2Description">Join us for a magical evening celebrating the holiday season with our community. This special event brings together families and friends for an unforgettable celebration.</textarea>
+                
+                <label for="event2Image">Event Image URL:</label>
+                <input type="url" id="event2Image" placeholder="https://example.com/event2-image.jpg">
+                
+                <h3>Activities for Event 2:</h3>
+                <div class="activity-item">
+                    <label for="event2Activity1">Activity 1:</label>
+                    <input type="text" id="event2Activity1" value="🎄 Holiday decoration making">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event2Activity2">Activity 2:</label>
+                    <input type="text" id="event2Activity2" value="🎵 Caroling and live performances">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event2Activity3">Activity 3:</label>
+                    <input type="text" id="event2Activity3" value="🍪 Cookie decorating station">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="event2Activity4">Activity 4:</label>
+                    <input type="text" id="event2Activity4" value="🎁 Gift exchange and community sharing">
+                </div>
+            </div>
 
             <!-- Call to Action -->
             <div class="form-section">
-                <h2>Call to Action</h2>
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeCTA" checked> Include Call to Action
+                    </label>
+                </h2>
                 <label for="ctaText">CTA Button Text:</label>
                 <input type="text" id="ctaText" value="Register Now">
                 
@@ -177,7 +199,11 @@
 
             <!-- Footer -->
             <div class="form-section">
-                <h2>Footer</h2>
+                <h2>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="includeFooter" checked> Include Footer
+                    </label>
+                </h2>
                 <label for="footerText">Footer Text:</label>
                 <textarea id="footerText">We can't wait to see you there and create wonderful memories together. Thank you for being such an important part of our community!</textarea>
                 

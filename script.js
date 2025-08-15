@@ -3,38 +3,62 @@ function generateEmailHTML(data) {
     return `<!DOCTYPE html>
 <html>
 <head>
+    <meta property="og:title" content="Email Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="referrer" content="origin">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Email Template</title>
     <style>
         img{-ms-interpolation-mode:bicubic;}
         table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+        .mceStandardButton, .mceStandardButton td, .mceStandardButton td a{mso-hide:all !important;}
         p, a, li, td, blockquote{mso-line-height-rule:exactly;}
         p, a, li, td, body, table, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
+        @media only screen and (max-width: 480px){
+            body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;}
+        }
+        .mcnPreviewText{display: none !important;}
         .bodyCell{margin:0 auto; padding:0; width:100%;}
-        p{margin:0; padding:0;}
-        table{border-collapse:collapse;}
-        td, p, a{word-break:break-word;}
+        .ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass div, .ExternalClass span, .ExternalClass font{line-height:100%;}
+        .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+        a[x-apple-data-detectors]{color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;}
+        body{
+            height:100%;
+            margin:0;
+            padding:0;
+            width:100%;
+            background: ${data.backgroundColor};
+        }
+        #bodyTable {
+            background: url('${data.headerImage}') repeat;
+            background-size: auto;
+        }
         h1, h2, h3, h4, h5, h6{display:block; margin:0; padding:0;}
         img, a img{border:0; height:auto; outline:none; text-decoration:none;}
     </style>
 </head>
-<body style="margin:0; padding:0; background:${data.backgroundColor};">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;">
+<body style="height:100%; margin:0; padding:0; width:100%; background:${data.backgroundColor};">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" id="bodyTable">
         <tbody>
             <tr>
                 <td align="center" valign="top" class="bodyCell">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                        
+                        ${data.includeHeader ? `
                         <!-- Header -->
                         <tr>
-                            <td style="background: url('${data.headerImage}') repeat-y; background-size: 100% auto; padding:40px 20px; text-align:center;">
+                            <td style="padding:40px 20px; text-align:center;">
                                 ${data.logoImage ? `<img src="${data.logoImage}" alt="Logo" style="max-width:200px; height:auto;">` : ''}
                             </td>
                         </tr>
+                        ` : ''}
                         
                         <!-- Content -->
                         <tr>
-                            <td style="padding:30px 20px; background:white;">
+                            <td style="padding:30px 20px; background:white; border-radius:8px; margin:20px;">
+                                
+                                ${data.includeGreeting ? `
                                 <p style="font-size:16px; line-height:1.6; color:#333; margin-bottom:20px;">
                                     Dear ${data.firstName},
                                 </p>
@@ -42,7 +66,9 @@ function generateEmailHTML(data) {
                                 <p style="font-size:16px; line-height:1.6; color:#666; margin-bottom:30px;">
                                     ${data.greetingText}
                                 </p>
+                                ` : ''}
                                 
+                                ${data.includeMainEvent ? `
                                 <!-- Main Event -->
                                 <h2 style="font-size:32px; margin-top:20px; color:${data.primaryColor}; text-align:left;">
                                     ★ ${data.eventTitle}
@@ -79,7 +105,9 @@ function generateEmailHTML(data) {
                                     <li>${data.activity3}</li>
                                     <li>${data.activity4}</li>
                                 </ul>
+                                ` : ''}
                                 
+                                ${data.includeEvent1 ? `
                                 <!-- Additional Event 1 -->
                                 <h2 style="font-size:28px; color:${data.secondaryColor}; margin:40px 0 20px 0;">
                                     ★ ${data.event1Title}
@@ -116,7 +144,9 @@ function generateEmailHTML(data) {
                                     <li>${data.event1Activity3}</li>
                                     <li>${data.event1Activity4}</li>
                                 </ul>
+                                ` : ''}
                                 
+                                ${data.includeEvent2 ? `
                                 <!-- Additional Event 2 -->
                                 <h2 style="font-size:28px; color:${data.secondaryColor}; margin:40px 0 20px 0;">
                                     ★ ${data.event2Title}
@@ -153,14 +183,18 @@ function generateEmailHTML(data) {
                                     <li>${data.event2Activity3}</li>
                                     <li>${data.event2Activity4}</li>
                                 </ul>
+                                ` : ''}
                                 
+                                ${data.includeCTA ? `
                                 <!-- CTA Button -->
                                 <div style="text-align:center; margin:40px 0;">
                                     <a href="${data.ctaLink}" style="background:${data.ctaBackgroundColor}; color:white; padding:15px 30px; text-decoration:none; border-radius:6px; font-size:18px; font-weight:bold; display:inline-block;">
                                         ${data.ctaText}
                                     </a>
                                 </div>
+                                ` : ''}
                                 
+                                ${data.includeFooter ? `
                                 <p style="font-size:16px; line-height:1.6; color:#666; margin:30px 0 20px 0;">
                                     ${data.footerText}
                                 </p>
@@ -174,6 +208,7 @@ function generateEmailHTML(data) {
                                         ${data.contactInfo}
                                     </p>
                                 </div>
+                                ` : ''}
                             </td>
                         </tr>
                     </table>
@@ -185,12 +220,23 @@ function generateEmailHTML(data) {
 </html>`;
 }
 
-
 // Collect form data
 function collectFormData() {
     return {
+        // Toggle states
+        includeHeader: document.getElementById('includeHeader').checked,
+        includeGreeting: document.getElementById('includeGreeting').checked,
+        includeMainEvent: document.getElementById('includeMainEvent').checked,
+        includeEvent1: document.getElementById('includeEvent1').checked,
+        includeEvent2: document.getElementById('includeEvent2').checked,
+        includeCTA: document.getElementById('includeCTA').checked,
+        includeFooter: document.getElementById('includeFooter').checked,
+        
+        // Header data
         headerImage: document.getElementById('headerImage').value || 'https://i.postimg.cc/SsDqYMLZ/pexels-photo-756903.png',
         logoImage: document.getElementById('logoImage').value,
+        
+        // Greeting data
         firstName: document.getElementById('firstName').value,
         greetingText: document.getElementById('greetingText').value,
         
@@ -230,19 +276,22 @@ function collectFormData() {
         event2Activity3: document.getElementById('event2Activity3').value,
         event2Activity4: document.getElementById('event2Activity4').value,
         
-        // Rest of the data
+        // CTA data
         ctaText: document.getElementById('ctaText').value,
         ctaLink: document.getElementById('ctaLink').value,
         ctaBackgroundColor: document.getElementById('ctaBackgroundColor').value,
+        
+        // Footer data
         footerText: document.getElementById('footerText').value,
         signature: document.getElementById('signature').value,
         contactInfo: document.getElementById('contactInfo').value,
+        
+        // Colors
         primaryColor: document.getElementById('primaryColor').value,
         secondaryColor: document.getElementById('secondaryColor').value,
         backgroundColor: document.getElementById('backgroundColor').value
     };
 }
-
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
@@ -301,4 +350,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     });
 });
-
