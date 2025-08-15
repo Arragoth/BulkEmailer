@@ -43,6 +43,7 @@ function generateEmailHTML(data) {
                                     ${data.greetingText}
                                 </p>
                                 
+                                <!-- Main Event -->
                                 <h2 style="font-size:32px; margin-top:20px; color:${data.primaryColor}; text-align:left;">
                                     ★ ${data.eventTitle}
                                 </h2>
@@ -69,25 +70,89 @@ function generateEmailHTML(data) {
                                 </div>
                                 
                                 <h3 style="font-size:24px; color:${data.primaryColor}; margin:30px 0 15px 0;">
-                                    ${data.activitiesTitle}
+                                    What to Expect:
                                 </h3>
                                 
-                                <ul style="font-size:16px; line-height:1.8; color:#666; padding-left:20px;">
+                                <ul style="font-size:16px; line-height:1.8; color:#666; padding-left:20px; margin-bottom:40px;">
                                     <li>${data.activity1}</li>
                                     <li>${data.activity2}</li>
                                     <li>${data.activity3}</li>
                                     <li>${data.activity4}</li>
                                 </ul>
                                 
+                                <!-- Additional Event 1 -->
                                 <h2 style="font-size:28px; color:${data.secondaryColor}; margin:40px 0 20px 0;">
-                                    ★ ${data.weekendTitle}
+                                    ★ ${data.event1Title}
                                 </h2>
                                 
-                                ${data.weekendImage ? `<img src="${data.weekendImage}" alt="Weekend Program" style="width:100%; max-width:560px; height:auto; margin:20px 0;">` : ''}
+                                ${data.event1Image ? `<img src="${data.event1Image}" alt="Event 1" style="width:100%; max-width:560px; height:auto; margin:20px 0;">` : ''}
                                 
-                                <p style="font-size:16px; line-height:1.6; color:#666; margin-bottom:30px;">
-                                    ${data.weekendDescription}
+                                <p style="font-size:16px; line-height:1.6; color:#666; margin-bottom:20px;">
+                                    ${data.event1Description}
                                 </p>
+                                
+                                <div style="background:#f8f8f8; padding:20px; margin:20px 0; border-radius:8px;">
+                                    <p style="font-size:18px; font-weight:bold; color:${data.secondaryColor}; margin-bottom:15px;">
+                                        📅 Event Details:
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Date:</strong> ${data.event1Date}
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Time:</strong> ${data.event1Time}
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Location:</strong> ${data.event1Location}
+                                    </p>
+                                </div>
+                                
+                                <h3 style="font-size:20px; color:${data.secondaryColor}; margin:25px 0 15px 0;">
+                                    What to Expect:
+                                </h3>
+                                
+                                <ul style="font-size:16px; line-height:1.8; color:#666; padding-left:20px; margin-bottom:40px;">
+                                    <li>${data.event1Activity1}</li>
+                                    <li>${data.event1Activity2}</li>
+                                    <li>${data.event1Activity3}</li>
+                                    <li>${data.event1Activity4}</li>
+                                </ul>
+                                
+                                <!-- Additional Event 2 -->
+                                <h2 style="font-size:28px; color:${data.secondaryColor}; margin:40px 0 20px 0;">
+                                    ★ ${data.event2Title}
+                                </h2>
+                                
+                                ${data.event2Image ? `<img src="${data.event2Image}" alt="Event 2" style="width:100%; max-width:560px; height:auto; margin:20px 0;">` : ''}
+                                
+                                <p style="font-size:16px; line-height:1.6; color:#666; margin-bottom:20px;">
+                                    ${data.event2Description}
+                                </p>
+                                
+                                <div style="background:#f8f8f8; padding:20px; margin:20px 0; border-radius:8px;">
+                                    <p style="font-size:18px; font-weight:bold; color:${data.secondaryColor}; margin-bottom:15px;">
+                                        📅 Event Details:
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Date:</strong> ${data.event2Date}
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Time:</strong> ${data.event2Time}
+                                    </p>
+                                    <p style="font-size:16px; color:#333; margin:5px 0;">
+                                        <strong>Location:</strong> ${data.event2Location}
+                                    </p>
+                                </div>
+                                
+                                <h3 style="font-size:20px; color:${data.secondaryColor}; margin:25px 0 15px 0;">
+                                    What to Expect:
+                                </h3>
+                                
+                                <ul style="font-size:16px; line-height:1.8; color:#666; padding-left:20px; margin-bottom:40px;">
+                                    <li>${data.event2Activity1}</li>
+                                    <li>${data.event2Activity2}</li>
+                                    <li>${data.event2Activity3}</li>
+                                    <li>${data.event2Activity4}</li>
+                                </ul>
                                 
                                 <!-- CTA Button -->
                                 <div style="text-align:center; margin:40px 0;">
@@ -120,6 +185,7 @@ function generateEmailHTML(data) {
 </html>`;
 }
 
+
 // Collect form data
 function collectFormData() {
     return {
@@ -127,20 +193,44 @@ function collectFormData() {
         logoImage: document.getElementById('logoImage').value,
         firstName: document.getElementById('firstName').value,
         greetingText: document.getElementById('greetingText').value,
+        
+        // Main Event
         eventTitle: document.getElementById('eventTitle').value,
         eventDate: document.getElementById('eventDate').value,
         eventTime: document.getElementById('eventTime').value,
         eventLocation: document.getElementById('eventLocation').value,
         eventDescription: document.getElementById('eventDescription').value,
         eventImage: document.getElementById('eventImage').value,
-        activitiesTitle: document.getElementById('activitiesTitle').value,
         activity1: document.getElementById('activity1').value,
         activity2: document.getElementById('activity2').value,
         activity3: document.getElementById('activity3').value,
         activity4: document.getElementById('activity4').value,
-        weekendTitle: document.getElementById('weekendTitle').value,
-        weekendDescription: document.getElementById('weekendDescription').value,
-        weekendImage: document.getElementById('weekendImage').value,
+        
+        // Additional Event 1
+        event1Title: document.getElementById('event1Title').value,
+        event1Date: document.getElementById('event1Date').value,
+        event1Time: document.getElementById('event1Time').value,
+        event1Location: document.getElementById('event1Location').value,
+        event1Description: document.getElementById('event1Description').value,
+        event1Image: document.getElementById('event1Image').value,
+        event1Activity1: document.getElementById('event1Activity1').value,
+        event1Activity2: document.getElementById('event1Activity2').value,
+        event1Activity3: document.getElementById('event1Activity3').value,
+        event1Activity4: document.getElementById('event1Activity4').value,
+        
+        // Additional Event 2
+        event2Title: document.getElementById('event2Title').value,
+        event2Date: document.getElementById('event2Date').value,
+        event2Time: document.getElementById('event2Time').value,
+        event2Location: document.getElementById('event2Location').value,
+        event2Description: document.getElementById('event2Description').value,
+        event2Image: document.getElementById('event2Image').value,
+        event2Activity1: document.getElementById('event2Activity1').value,
+        event2Activity2: document.getElementById('event2Activity2').value,
+        event2Activity3: document.getElementById('event2Activity3').value,
+        event2Activity4: document.getElementById('event2Activity4').value,
+        
+        // Rest of the data
         ctaText: document.getElementById('ctaText').value,
         ctaLink: document.getElementById('ctaLink').value,
         ctaBackgroundColor: document.getElementById('ctaBackgroundColor').value,
@@ -152,6 +242,7 @@ function collectFormData() {
         backgroundColor: document.getElementById('backgroundColor').value
     };
 }
+
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
