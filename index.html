@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Email Template Generator</h1>
+        
+        <form id="templateForm">
+            <!-- Header Section -->
+            <div class="form-section">
+                <h2>Header</h2>
+                <label for="headerImage">Header Background Image URL:</label>
+                <input type="url" id="headerImage" placeholder="https://example.com/image.jpg">
+                
+                <label for="logoImage">Logo Image URL:</label>
+                <input type="url" id="logoImage" placeholder="https://example.com/logo.png">
+            </div>
+
+            <!-- Personal Greeting -->
+            <div class="form-section">
+                <h2>Personal Greeting</h2>
+                <label for="firstName">First Name Placeholder:</label>
+                <input type="text" id="firstName" value="{{FirstName}}">
+                
+                <label for="greetingText">Greeting Text:</label>
+                <textarea id="greetingText">I hope this message finds you well! As the leaves begin to change and the air turns crisp, we're excited to share some wonderful updates and upcoming events with you.</textarea>
+            </div>
+
+            <!-- Main Event Section -->
+            <div class="form-section">
+                <h2>Main Event</h2>
+                <label for="eventTitle">Event Title:</label>
+                <input type="text" id="eventTitle" value="Join Us for the Harvest Festival!">
+                
+                <label for="eventDate">Event Date:</label>
+                <input type="text" id="eventDate" value="Saturday, October 14th, 2023">
+                
+                <label for="eventTime">Event Time:</label>
+                <input type="text" id="eventTime" value="10:00 AM - 4:00 PM">
+                
+                <label for="eventLocation">Event Location:</label>
+                <input type="text" id="eventLocation" value="Main Campus Grounds">
+                
+                <label for="eventDescription">Event Description:</label>
+                <textarea id="eventDescription">We're thrilled to invite you to our annual Harvest Festival! This beloved tradition brings our community together for a day filled with joy, laughter, and celebration.</textarea>
+                
+                <label for="eventImage">Event Image URL:</label>
+                <input type="url" id="eventImage" placeholder="https://example.com/event-image.jpg">
+            </div>
+
+            <!-- Activities Section -->
+            <div class="form-section">
+                <h2>Activities</h2>
+                <label for="activitiesTitle">Activities Section Title:</label>
+                <input type="text" id="activitiesTitle" value="What to Expect:">
+                
+                <div class="activity-item">
+                    <label for="activity1">Activity 1:</label>
+                    <input type="text" id="activity1" value="🎃 Pumpkin carving and decorating stations">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="activity2">Activity 2:</label>
+                    <input type="text" id="activity2" value="🍂 Hayrides around the beautiful autumn grounds">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="activity3">Activity 3:</label>
+                    <input type="text" id="activity3" value="🎵 Live music and entertainment throughout the day">
+                </div>
+                
+                <div class="activity-item">
+                    <label for="activity4">Activity 4:</label>
+                    <input type="text" id="activity4" value="🍎 Delicious seasonal treats and refreshments">
+                </div>
+            </div>
+
+            <!-- Weekend Program Section -->
+            <div class="form-section">
+                <h2>Weekend Program</h2>
+                <label for="weekendTitle">Weekend Program Title:</label>
+                <input type="text" id="weekendTitle" value="Discover Our Weekend Program">
+                
+                <label for="weekendDescription">Weekend Program Description:</label>
+                <textarea id="weekendDescription">In addition to our exciting Harvest Festival, we want to remind you about our fantastic Weekend Program that runs every Saturday and Sunday throughout the fall season.</textarea>
+                
+                <label for="weekendImage">Weekend Program Image URL:</label>
+                <input type="url" id="weekendImage" placeholder="https://example.com/weekend-image.jpg">
+            </div>
+
+            <!-- Call to Action -->
+            <div class="form-section">
+                <h2>Call to Action</h2>
+                <label for="ctaText">CTA Button Text:</label>
+                <input type="text" id="ctaText" value="Register Now">
+                
+                <label for="ctaLink">CTA Button Link:</label>
+                <input type="url" id="ctaLink" placeholder="https://example.com/register">
+                
+                <label for="ctaBackgroundColor">CTA Button Background Color:</label>
+                <input type="color" id="ctaBackgroundColor" value="#526f49">
+            </div>
+
+            <!-- Footer -->
+            <div class="form-section">
+                <h2>Footer</h2>
+                <label for="footerText">Footer Text:</label>
+                <textarea id="footerText">We can't wait to see you there and create wonderful memories together. Thank you for being such an important part of our community!</textarea>
+                
+                <label for="signature">Signature:</label>
+                <input type="text" id="signature" value="Warm regards,<br>The [Organization] Team">
+                
+                <label for="contactInfo">Contact Information:</label>
+                <textarea id="contactInfo">📧 Email: info@example.com<br>📞 Phone: (555) 123-4567<br>🌐 Website: www.example.com</textarea>
+                
+                <label for="socialLinks">Social Media Links (comma separated):</label>
+                <input type="text" id="socialLinks" placeholder="https://facebook.com/page, https://instagram.com/page">
+            </div>
+
+            <!-- Color Scheme -->
+            <div class="form-section">
+                <h2>Color Scheme</h2>
+                <label for="primaryColor">Primary Color:</label>
+                <input type="color" id="primaryColor" value="#526f49">
+                
+                <label for="secondaryColor">Secondary Color:</label>
+                <input type="color" id="secondaryColor" value="#885f5f">
+                
+                <label for="backgroundColor">Background Color:</label>
+                <input type="color" id="backgroundColor" value="#e8f4fd">
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="previewBtn">Preview Email</button>
+                <button type="button" id="generateBtn">Generate HTML Code</button>
+                <button type="button" id="downloadBtn">Download HTML File</button>
+            </div>
+        </form>
+
+        <!-- Preview and Code Output -->
+        <div id="previewSection" style="display: none;">
+            <h2>Preview</h2>
+            <iframe id="previewFrame" width="100%" height="600px"></iframe>
+        </div>
+
+        <div id="codeSection" style="display: none;">
+            <h2>Generated HTML Code</h2>
+            <textarea id="generatedCode" readonly></textarea>
+            <button id="copyCodeBtn">Copy Code</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
